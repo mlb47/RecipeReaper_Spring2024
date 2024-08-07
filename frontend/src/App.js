@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 
 function App() {
     const [user, setUser] = useState(null);
-
+    
     useEffect(() =>{
       const getUser = () => {setUser(sessionStorage.getItem("user"))};
     getUser();
@@ -21,14 +21,14 @@ function App() {
                 <Nav  user={user}/>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route
+                    <Route 
                         path="/home"
                         element={<Home />} />
-                    <Route
+                    <Route 
                         path="/login"
                         element={user ? <Navigate to="/" /> : <Login />}
                     />
-                     <Route
+                     <Route 
                         path="/groceries"
                         element={user ? <Groceries /> : <Navigate to="/login" />}
                     />
